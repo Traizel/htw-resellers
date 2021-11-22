@@ -1,3 +1,3 @@
-# HTW-No-Stock-Nofify
+# HTW-Reseller App
 
-HTW App to notify slack channel when a product reaches 0 stock
+HTW App to add, remove, and track reseller and reseller information

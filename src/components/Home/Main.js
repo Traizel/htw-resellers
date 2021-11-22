@@ -36,7 +36,7 @@ function Main () {
 
   const data = newItems.map((item) => [
     item.name,
-    item.sku,
+    item.location,
     item.id,
   ]);
 
@@ -51,7 +51,7 @@ function Main () {
               columns={[
                 //names the columns found on MUI table
                 { name: "Name" },
-                { name: "SKU" },
+                { name: "Location" },
                 { name: "ID" },
               ]}
               title={""} //give the table a name
