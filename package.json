@@ -41,6 +41,9 @@
     "test": "jest",
     "eject": "react-scripts eject"
   },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "nodemon": "^1.18.10"
   },
