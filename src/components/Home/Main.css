@@ -1,0 +1,56 @@
+table {
+    width: 100%;
+}
+
+td {
+    padding: 2%;
+    
+}
+
+thead {
+    background-color: rgb(172, 172, 172);
+}
+
+tr {
+    margin: 10%;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #94f3fa;
+}
+
+br {
+    height: 1500%;
+}
+
+.loader {
+    border: 66px solid rgb(172, 172, 172);
+    border-radius: 50%;
+    border-top: 66px solid #94f3fa;
+    width: 420px;
+    height: 420px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
