@@ -69,6 +69,7 @@ function Main () {
     item.email,
     item.location,
     item.customerid,
+    item.id,
   ]);
 
   const addReseller = (e) => {
@@ -123,6 +124,36 @@ function Main () {
                 { name: "Email" },
                 { name: "Location" },
                 { name: "Customer ID" },
+                {
+                  name: "",
+                  options: {
+                    filter: false,
+                    sort: false,
+                    empty: true,
+                    customBodyRenderLite: (dataIndex, rowIndex) => {
+                      return (
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={(event) => {
+                            event.preventDefault();
+                            const id = items[dataIndex].id;
+                            console.log(id);
+                            dispatch({
+                              type: "DELETE_ITEM",
+                              payload: {
+                                id: id,
+                              },
+                            });
+                            swal("Okay! This Reseller is removed!");
+                          }}
+                        >
+                          <DeleteIcon /> Delete
+                        </Button>
+                      );
+                    },
+                  },
+                },
               ]}
               title={"Resellers"} //give the table a name
               />

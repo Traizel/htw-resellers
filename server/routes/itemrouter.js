@@ -51,52 +51,20 @@ router.post("/items", (req, res) => {
     });
 });
 
-router.delete("/items/:id", async function (req, res) {
+router.delete("/items:id", async function (req, res) {
   console.log("We are deleting items with id:", req.params.id);
-  const ids = req.params.id;
-
-  let items = [];
-  let itemToPush = '';
-  for (let i = 0; i < ids.length; i++) {
-    if (ids[i] !== ',') {
-      itemToPush += (ids[i]);
-    }
-    if (ids[i] === ',') {
-      items.push(itemToPush);
-      itemToPush = '';
-    }
-  }
-  items.push(itemToPush);
-  itemToPush = '';
+  const id = req.params.id[1];
+  console.log(id);
   
   try {
-    for (item of items) {
-      const queryText = `delete from "item" WHERE id = ${item}`;
+      const queryText = 'delete from "item" WHERE id = $1';
       await pool
-        .query(queryText)
-    }
+        .query(queryText, [id])
+      return res.status(200).send();
   } catch (err) {
     console.log('Error on delete: ', err);
     return res.status(500).send();
   }
-
-  
-  try {
-    const queryText = `select * from "item" ORDER BY id DESC`;
-    await pool
-      .query(queryText)
-      .then((selectResult) => {
-        res.send(selectResult.rows);
-      })
-      .catch((error) => {
-        console.log(`Error on item query ${error}`);
-        res.sendStatus(500);
-      });
-  } catch (err) {
-    console.log('Error on Get: ', err);
-    return res.status(500).send();
-  }
- 
     
 });
 
