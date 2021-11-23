@@ -29,6 +29,28 @@ router.get("/getitems", (req, res) => {
     });
 });
 
+router.post("/items", (req, res) => {
+  console.log("We are about to add to the item list");
+
+  let name = req.body.name;
+  let business = req.body.business;
+  let phone = req.body.phone;
+  let email = req.body.email;
+  let customerid = req.body.customerid;
+  let location = req.body.location;
+
+  const queryText = `insert into "item" (name, business, phone, email, location, customerid) VALUES ($1, $2, $3, $4, $5, $6);`;
+  pool
+    .query(queryText, [name, business, phone, email, location, customerid])
+    .then((selectResult) => {
+      res.send(selectResult.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on item query ${error}`);
+      res.sendStatus(500);
+    });
+});
+
 router.delete("/items/:id", async function (req, res) {
   console.log("We are deleting items with id:", req.params.id);
   const ids = req.params.id;

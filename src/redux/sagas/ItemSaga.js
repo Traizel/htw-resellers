@@ -14,9 +14,23 @@ function* getitemlist(action) {
   }
 }
 
+function* addItem(action) {
+  try {
+    yield axios.post(`/api/item/items`, action.payload);
+    const response = yield axios.get(`/api/item/getitems`);
+    yield put({
+      type: "SET_ITEM",
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log("Error with adding to the list of items:", error);
+  }
+}
+
 //this takes all of the Saga functions and dispatches them
 function* itemSaga() {
     yield takeLatest('GET_ITEM_LIST', getitemlist);
+    yield takeLatest('ADD_ITEM', addItem);
 }
 
 export default itemSaga;
