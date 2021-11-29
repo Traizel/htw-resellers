@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "homepage": "https://resellers.heattransferwarehouse.com/",
+  "repository": "git://github.com/Traizel/htw-resellers.git",
   "proxy": "http://localhost:5000",
   "dependencies": {
     "@material-ui/core": "^4.11.1",
