@@ -1,13 +1,15 @@
 {
-  "name": "prime-solo-project",
+  "name": "htw-resellers",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://resellers.heattransferwarehouse.com/",
   "proxy": "http://localhost:5000",
   "dependencies": {
     "@material-ui/core": "^4.11.1",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
+    "@terrestris/react-geo": "^15.3.0",
+    "antd": "^4.17.2",
     "async": "^3.2.0",
     "axios": "^0.19.2",
     "backend": "0.0.0",

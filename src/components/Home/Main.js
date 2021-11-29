@@ -20,12 +20,7 @@ import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 import FlagIcon from "@material-ui/icons/Flag";
 import QueueIcon from "@material-ui/icons/Queue";
 import swal from "sweetalert";
-import ItemList from './ItemList';
-import Map from 'ol/Map';
-import View from 'ol/View';
-import TileLayer from 'ol/layer/Tile';
-import XYZ from 'ol/source/XYZ';
-import { PhoneBluetoothSpeaker } from "@material-ui/icons";
+import Map from "../Map/LiveMap";
 
 
 function Main () {
@@ -46,21 +41,6 @@ function Main () {
     });
   }, [])
     //get all reseller info
-
-  new Map({
-    target: 'map',
-    layers: [
-      new TileLayer({
-        source: new XYZ({
-          url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        })
-      })
-    ],
-    view: new View({
-      center: [0, 0],
-      zoom: 2
-    })
-  });
 
   const data = items.map((item) => [
     item.name,
@@ -102,16 +82,32 @@ function Main () {
       <br></br>
       <br></br>
       <br></br>
-      <form>
+      <section class="reseller-form">
         <h3>Add a Reseller</h3>
-        <p>Name</p><input value={name} onChange={(e) => (setName(e.target.value))}></input>
-        <p>Business</p><input value={business} onChange={(e) => (setBusiness(e.target.value))}></input>
-        <p>Phone</p><input value={phone} type='number' onChange={(e) => (setPhone(e.target.value))}></input>
-        <p>Email</p><input value={email} onChange={(e) => (setEmail(e.target.value))}></input>
-        <p>Location</p><input value={location} type='number' onChange={(e) => (setLocation(e.target.value))}></input>
-        <p>Customer ID</p><input value={customerid} type='number' onChange={(e) => (setCustomerid(e.target.value))}></input>
-        <button onClick={(e) => (addReseller(e))}>Add</button>
-      </form>
+        <form>
+        <div>
+          <p>Name</p><input value={name} onChange={(e) => (setName(e.target.value))}></input>
+        </div>
+        <div>
+          <p>Business</p><input value={business} onChange={(e) => (setBusiness(e.target.value))}></input>
+        </div>
+        <div>
+          <p>Phone</p><input value={phone} type='number' onChange={(e) => (setPhone(e.target.value))}></input>
+        </div>
+        <div>
+          <p>Email</p><input value={email} onChange={(e) => (setEmail(e.target.value))}></input>
+        </div>
+        <div>
+          <p>Location</p><input value={location} type='number' onChange={(e) => (setLocation(e.target.value))}></input>
+        </div>
+        <div>
+          <p>Customer ID</p><input value={customerid} type='number' onChange={(e) => (setCustomerid(e.target.value))}></input>
+        </div>
+        </form>
+        <div>
+          <button onClick={(e) => (addReseller(e))}>Add</button>
+        </div>
+      </section>
       <br/>
       <br/>
       <MUITable
@@ -160,6 +156,7 @@ function Main () {
       <br></br>
       <br></br>
       <br></br>
+      <Map />
       </>
     )
   }
