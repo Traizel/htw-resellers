@@ -65,3 +65,24 @@ form {
         transform: rotate(360deg);
     }
 }
+
+.ol-map, #map, .map {
+    min-width: 600px;
+    min-height: 500px;
+    margin-right: 100px;
+    margin-left: 100px;
+    height: 1000px;
+    width: "100%";
+}
+
+.ol-control {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.ol-full-screen {
+    top: .5em;
+    right: .5em;
+}

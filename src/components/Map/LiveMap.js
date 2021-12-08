@@ -18,25 +18,75 @@ let styles = {
   }),
 };
 
-const firstJson = {
-  "type": "Feature",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [125.6, 10.1]
-  },
-  "properties": {
-    "name": "Dinagat Islands"
-  }
+const firstJson = 
+{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          162.91888800895453,
+          25.68211430503662
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.348215087620131,
+          45.957980379475075
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.60908093671685,
+          -23.022790595252886
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.79821579028697,
+          -68.97394476948142
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.4114243193112,
+          10.31779669682959
+        ]
+      },
+      "properties": {}
+    }
+  ]
 }
 
 const geojsonObject = { ...firstJson }; // see full geojson object in Github
 const geojsonObject2 = { ...firstJson }; // see full geojson object in Github
 
 const LiveMap = () => {
-  const [center, setCenter] = useState([-94.9065, 38.9884]);
-  const [zoom, setZoom] = useState(9);
-  const [showLayer1, setShowLayer1] = useState(true);
-  const [showLayer2, setShowLayer2] = useState(true);
+  const [center, setCenter] = useState([0, 0]);
+  const [zoom, setZoom] = useState(1);
+  const [showLayer1, setShowLayer1] = useState(false);
+  const [showLayer2, setShowLayer2] = useState(false);
 return (
   <div>
     <Map center={fromLonLat(center)} zoom={zoom}>
@@ -74,8 +124,9 @@ return (
         type="checkbox"
         checked={showLayer2}
         onChange={event => setShowLayer2(event.target.checked)}
-      /> Wyandotte County</div>
+      /> Wyandotte County
     </div>
+  </div>
   );
 }
 export default LiveMap;

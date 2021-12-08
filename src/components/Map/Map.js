@@ -12,7 +12,8 @@ const Map = ({ children, zoom, center }) => {
       view: new ol.View({ zoom, center }),
       layers: [],
       controls: [],
-      overlays: []
+      overlays: [],
+      target: 'map'
     };
     let mapObject = new ol.Map(options);
     mapObject.setTarget(mapRef.current);
